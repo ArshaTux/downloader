@@ -57,7 +57,7 @@ jobs:
 
           # Download each URL
           for URL in $URLS; do
-            FILENAME=$(basename "$URL")
+            FILENAME=$(basename "$(echo "$URL" | cut -d'?' -f1)")
             echo "⬇️ Downloading $URL -> $FILENAME"
             aria2c \
               --split=2 \
